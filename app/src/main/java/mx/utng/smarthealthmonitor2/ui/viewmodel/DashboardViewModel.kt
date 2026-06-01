@@ -24,5 +24,13 @@ class DashboardViewModel : ViewModel() {
             initialValue = MockData.pasosActual
         )
 
+    val spO2: StateFlow<Int> = SmartHealthRepository.spo2Flow
+        .map { if (it == 0) 98 else it }  // 98% es valor normal
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5_000),
+            initialValue = 98
+        )
+
     val historial = MockData.historialFC
 }

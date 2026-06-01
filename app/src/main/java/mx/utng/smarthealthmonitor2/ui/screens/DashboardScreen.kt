@@ -15,7 +15,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import mx.utng.smarthealthmonitor2.BuildConfig
 import mx.utng.smarthealthmonitor2.data.SmartHealthRepository
 import mx.utng.smarthealthmonitor2.data.models.LecturaFC
-import mx.utng.smarthealthmonitor2.data.models.MockData
 import mx.utng.smarthealthmonitor2.ui.components.FilaHistorial
 import mx.utng.smarthealthmonitor2.ui.components.TarjetaDato
 import mx.utng.smarthealthmonitor2.ui.theme.SmartHealthMonitor2Theme
@@ -30,6 +29,7 @@ fun DashboardScreen(
 ) {
     val fc by viewModel.fc.collectAsState()
     val pasos by viewModel.pasos.collectAsState()
+    val spO2 by viewModel.spO2.collectAsState()
     val historial = viewModel.historial
 
     SmartHealthMonitor2Theme(dynamicColor = false) {
@@ -68,6 +68,7 @@ fun DashboardScreen(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
+                // Tarjeta de FC
                 item {
                     TarjetaDato(
                         valor = "$fc",
@@ -76,6 +77,8 @@ fun DashboardScreen(
                         colorValor = MaterialTheme.colorScheme.error
                     )
                 }
+
+                // Tarjeta de Pasos
                 item {
                     TarjetaDato(
                         valor = "%,d".format(pasos),
@@ -84,6 +87,17 @@ fun DashboardScreen(
                         colorValor = MaterialTheme.colorScheme.primary
                     )
                 }
+
+                item {
+                    TarjetaDato(
+                        valor = "$spO2",
+                        unidad = "%",
+                        label = "Saturación de Oxígeno",
+                        colorValor = MaterialTheme.colorScheme.tertiary
+                    )
+                }
+
+                // Título del historial
                 item {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -99,23 +113,27 @@ fun DashboardScreen(
                         }
                     }
                 }
+
+                // Lista de historial
                 items(historial, key = { it.id }) { lectura ->
                     FilaHistorial(lectura = lectura)
                 }
 
-
+                // Botón de simulación (actualizado con SpO2)
                 item {
                     if (BuildConfig.DEBUG) {
                         OutlinedButton(
                             onClick = {
                                 val fcSimulado = (60..110).random()
                                 val pasosSimulado = (3000..8000).random()
+                                val spo2Simulado = (88..100).random()
                                 SmartHealthRepository.actualizarFC(fcSimulado)
                                 SmartHealthRepository.actualizarPasos(pasosSimulado)
+                                SmartHealthRepository.actualizarSpO2(spo2Simulado)
                             },
                             modifier = Modifier.fillMaxWidth()
                         ) {
-                            Text("Simular dato del wearable (DEBUG)")
+                            Text("🎮 Simular dato del wearable (DEBUG)")
                         }
                     }
                 }
