@@ -38,6 +38,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -71,5 +72,7 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.compose.material:material-icons-extended:1.6.0")
     implementation("androidx.navigation:navigation-compose:2.8.0")
+    implementation("com.google.android.gms:play-services-wearable:18.2.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
 
 }

@@ -6,26 +6,32 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import mx.utng.smarthealthmonitor2.BuildConfig
+import mx.utng.smarthealthmonitor2.data.SmartHealthRepository
 import mx.utng.smarthealthmonitor2.data.models.LecturaFC
 import mx.utng.smarthealthmonitor2.data.models.MockData
 import mx.utng.smarthealthmonitor2.ui.components.FilaHistorial
 import mx.utng.smarthealthmonitor2.ui.components.TarjetaDato
 import mx.utng.smarthealthmonitor2.ui.theme.SmartHealthMonitor2Theme
+import mx.utng.smarthealthmonitor2.ui.viewmodel.DashboardViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardScreen(
     onHistorialClick: () -> Unit = {},
     onAlertClick: () -> Unit = {},
-    fc: Int = MockData.fcActual,
-    pasos: Int = MockData.pasosActual,
-    historial: List<LecturaFC> = MockData.historialFC
+    viewModel: DashboardViewModel = viewModel()
 ) {
+    val fc by viewModel.fc.collectAsState()
+    val pasos by viewModel.pasos.collectAsState()
+    val historial = viewModel.historial
+
     SmartHealthMonitor2Theme(dynamicColor = false) {
         Scaffold(
             topBar = {
@@ -95,6 +101,23 @@ fun DashboardScreen(
                 }
                 items(historial, key = { it.id }) { lectura ->
                     FilaHistorial(lectura = lectura)
+                }
+
+
+                item {
+                    if (BuildConfig.DEBUG) {
+                        OutlinedButton(
+                            onClick = {
+                                val fcSimulado = (60..110).random()
+                                val pasosSimulado = (3000..8000).random()
+                                SmartHealthRepository.actualizarFC(fcSimulado)
+                                SmartHealthRepository.actualizarPasos(pasosSimulado)
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text("Simular dato del wearable (DEBUG)")
+                        }
+                    }
                 }
             }
         }
