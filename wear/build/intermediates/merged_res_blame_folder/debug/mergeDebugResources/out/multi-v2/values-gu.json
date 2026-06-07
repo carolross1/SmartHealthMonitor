@@ -1,0 +1,94 @@
+{
+    "logs": [
+        {
+            "outputFile": "mx.utng.smarthealthmonitor.wear-mergeDebugResources-39:/values-gu/values-gu.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\c7330008a3a3612f3bffe9f8afc99f1d\\transformed\\ui-release\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,292,374,467,566,653,739,840,927,1013,1096,1179,1254,1338,1413,1488,1563,1639,1705",
+                        "endColumns": "94,91,81,92,98,86,85,100,86,85,82,82,74,83,74,74,74,75,65,115",
+                        "endOffsets": "195,287,369,462,561,648,734,835,922,1008,1091,1174,1249,1333,1408,1483,1558,1634,1700,1816"
+                    },
+                    "to": {
+                        "startLines": "2,10,11,30,31,32,33,34,35,36,37,38,39,40,41,42,43,45,46,47",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,918,1010,3268,3361,3460,3547,3633,3734,3821,3907,3990,4073,4148,4232,4307,4382,4558,4634,4700",
+                        "endColumns": "94,91,81,92,98,86,85,100,86,85,82,82,74,83,74,74,74,75,65,115",
+                        "endOffsets": "195,1005,1087,3356,3455,3542,3628,3729,3816,3902,3985,4068,4143,4227,4302,4377,4452,4629,4695,4811"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\55b64ad6f5b5cbdd29d678da114f7833\\transformed\\play-services-base-18.5.0\\res\\values-gu\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "193,297,459,580,688,822,940,1047,1143,1287,1391,1551,1672,1811,1957,2014,2076",
+                        "endColumns": "103,161,120,107,133,117,106,95,143,103,159,120,138,145,56,61,77",
+                        "endOffsets": "296,458,579,687,821,939,1046,1142,1286,1390,1550,1671,1810,1956,2013,2075,2153"
+                    },
+                    "to": {
+                        "startLines": "12,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1092,1200,1366,1491,1603,1741,1863,1974,2221,2369,2477,2641,2766,2909,3059,3120,3186",
+                        "endColumns": "107,165,124,111,137,121,110,99,147,107,163,124,142,149,60,65,81",
+                        "endOffsets": "1195,1361,1486,1598,1736,1858,1969,2069,2364,2472,2636,2761,2904,3054,3115,3181,3263"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\9eadb299b00ae539b0047e7fb09f6faf\\transformed\\play-services-basement-18.4.0\\res\\values-gu\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "142",
+                        "endOffsets": "337"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "2074",
+                        "endColumns": "146",
+                        "endOffsets": "2216"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\ca8dd734d8f95f6d8eb0857ff6aa9647\\transformed\\foundation-release\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,140",
+                        "endColumns": "84,84",
+                        "endOffsets": "135,220"
+                    },
+                    "to": {
+                        "startLines": "48,49",
+                        "startColumns": "4,4",
+                        "startOffsets": "4816,4901",
+                        "endColumns": "84,84",
+                        "endOffsets": "4896,4981"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\e108db1c678222f10f880b69a2d7adc8\\transformed\\core-1.15.0\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,149,252,349,451,553,651,773",
+                        "endColumns": "93,102,96,101,101,97,121,100",
+                        "endOffsets": "144,247,344,446,548,646,768,869"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9,44",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "200,294,397,494,596,698,796,4457",
+                        "endColumns": "93,102,96,101,101,97,121,100",
+                        "endOffsets": "289,392,489,591,693,791,913,4553"
+                    }
+                }
+            ]
+        }
+    ]
+}
