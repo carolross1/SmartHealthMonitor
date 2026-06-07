@@ -1,16 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-    id("com.google.devtools.ksp") version "2.0.0-1.0.21"
 }
 
 android {
-    namespace = "mx.utng.smarthealthmonitor"
+    namespace = "mx.utng.smarthealthmonitor2"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "mx.utng.smarthealthmonitor"
+        applicationId = "mx.utng.smarthealthmonitor2"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -32,18 +30,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
+        kotlinCompilerExtensionVersion = "1.5.1"
     }
     packaging {
         resources {
@@ -53,6 +51,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -61,25 +60,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-
-    // Navigation Compose
-    implementation("androidx.navigation:navigation-compose:2.8.0")
-    // ViewModel Compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
-
-    // Material Icons Extended
-    implementation("androidx.compose.material:material-icons-extended:1.7.6")
-
-    // Wearable Data Layer (MessageClient)
-    implementation("com.google.android.gms:play-services-wearable:18.2.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
-
-    // Room DB
-    val roomVersion = "2.6.1"
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    ksp("androidx.room:room-compiler:$roomVersion")
-
+    implementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.material3.lint)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -87,4 +69,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation("androidx.compose.material3:material3:1.2.0")
+    implementation("androidx.compose.material:material-icons-extended:1.6.0")
+    implementation("androidx.navigation:navigation-compose:2.8.0")
+    implementation("com.google.android.gms:play-services-wearable:18.2.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
+
 }
