@@ -1,6 +1,8 @@
 package mx.utng.smarthealthmonitor.wear
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -15,7 +17,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.lifecycleScope
 import androidx.wear.compose.material.*
+import com.google.android.gms.wearable.DataClient
+import com.google.android.gms.wearable.Wearable
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class WearMainActivity : ComponentActivity() {
 
@@ -24,6 +29,20 @@ class WearMainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         wearDataSender = WearDataSender(this)
+
+        // Limpiar todos los items anteriores del DataLayer
+        lifecycleScope.launch {
+            try {
+                Wearable.getDataClient(this@WearMainActivity)
+                    .deleteDataItems(
+                        Uri.parse("wear://*/heart_rate"),
+                        DataClient.FILTER_PREFIX
+                    ).await()
+                Log.d("WearMainActivity", "DataLayer limpiado")
+            } catch (e: Exception) {
+                Log.e("WearMainActivity", "Error limpiando: ${e.message}")
+            }
+        }
 
         setContent {
             WearApp(
@@ -57,22 +76,14 @@ fun WearApp(onEnviarFC: (Int) -> Unit) {
                 verticalArrangement = Arrangement.spacedBy(6.dp),
                 modifier = Modifier.padding(horizontal = 16.dp)
             ) {
-                Text(
-                    text = "❤",
-                    fontSize = 24.sp,
-                    color = colorBpm
-                )
+                Text(text = "❤", fontSize = 24.sp, color = colorBpm)
                 Text(
                     text = "$bpm",
                     fontSize = 36.sp,
                     fontWeight = FontWeight.Bold,
                     color = colorBpm
                 )
-                Text(
-                    text = "bpm",
-                    fontSize = 12.sp,
-                    color = Color.Gray
-                )
+                Text(text = "bpm", fontSize = 12.sp, color = Color.Gray)
                 Text(
                     text = if (esNormal) "Normal" else "Fuera de rango",
                     fontSize = 11.sp,

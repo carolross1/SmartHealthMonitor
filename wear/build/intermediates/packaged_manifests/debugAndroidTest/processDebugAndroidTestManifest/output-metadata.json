@@ -4,7 +4,7 @@
     "type": "PACKAGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "mx.utng.smarthealthmonitor.test",
+  "applicationId": "mx.utng.smarthealthmonitor.wear.test",
   "variantName": "debugAndroidTest",
   "elements": [
     {
