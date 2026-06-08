@@ -7,6 +7,7 @@ import mx.utng.smarthealthmonitor.data.db.LecturaFCDao
 import mx.utng.smarthealthmonitor.data.db.SmartHealthDB
 
 object SmartHealthRepository {
+
     private val _fcFlow = MutableStateFlow(0)
     val fcFlow: StateFlow<Int> = _fcFlow.asStateFlow()
 

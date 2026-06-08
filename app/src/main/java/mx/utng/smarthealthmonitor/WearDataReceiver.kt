@@ -1,9 +1,7 @@
 package mx.utng.smarthealthmonitor
 
 import android.util.Log
-import com.google.android.gms.wearable.DataEvent
-import com.google.android.gms.wearable.DataEventBuffer
-import com.google.android.gms.wearable.DataMapItem
+import com.google.android.gms.wearable.MessageEvent
 import com.google.android.gms.wearable.WearableListenerService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,27 +15,20 @@ class WearDataReceiver : WearableListenerService() {
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
     companion object {
-        const val PATH_HEART_RATE = "/heart_rate"
-        const val KEY_BPM = "bpm"
+        const val PATH_FC = "/smarthealthmonitor/fc"
+        private const val TAG = "WearListener"
     }
 
-    override fun onCreate() {
-        super.onCreate()
-        Log.d("WearDataReceiver", "Servicio iniciado")
-    }
+    override fun onMessageReceived(messageEvent: MessageEvent) {
+        super.onMessageReceived(messageEvent)
+        val data = String(messageEvent.data)
+        val path = messageEvent.path
+        Log.i(TAG, "Mensaje recibido: path=$path, data=$data")
 
-    override fun onDataChanged(dataEvents: DataEventBuffer) {
-        Log.d("WearDataReceiver", "onDataChanged llamado")
-        dataEvents.forEach { event ->
-            if (event.type == DataEvent.TYPE_CHANGED &&
-                event.dataItem.uri.path == PATH_HEART_RATE) {
-                val dataMap = DataMapItem.fromDataItem(event.dataItem).dataMap
-                val bpm = dataMap.getInt(KEY_BPM)
-                Log.d("WearDataReceiver", "FC recibida: $bpm bpm")
-                scope.launch {
-                    SmartHealthRepository.actualizarFC(bpm)
-                }
-            }
+        if (path == PATH_FC) {
+            val bpm = data.toIntOrNull() ?: return
+            Log.i(TAG, "BPM actualizado: $bpm")
+            scope.launch { SmartHealthRepository.actualizarFC(bpm) }
         }
     }
 
