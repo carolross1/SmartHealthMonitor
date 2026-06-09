@@ -32,21 +32,42 @@ fun DashboardScreen(
 
     // Estado para el diálogo y Snackbar
     var mostrarAlerta by remember { mutableStateOf(false) }
-    val snackBarHostState = remember { SnackbarHostState() }
+    val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
+
+    // RETO: Variable para almacenar la última alerta enviada (para posible deshacer)
+    var ultimaAlertaEnviada by remember { mutableStateOf("") }
 
     // Diálogo condicional
     if (mostrarAlerta) {
         AlertScreen(
             fc = fcActual,
             onDismiss = { mostrarAlerta = false },
-            onConfirmar = {
+            onConfirmar = { nota ->
                 mostrarAlerta = false
+                ultimaAlertaEnviada = nota  // Guardar la nota para posible deshacer
                 scope.launch {
-                    snackBarHostState.showSnackbar(
-                        message = "Alerta enviada a tus contactos de emergencia",
+                    // RETO: Snackbar con botón Deshacer
+                    val result = snackbarHostState.showSnackbar(
+                        message = "✅ Alerta enviada a tus contactos de emergencia",
+                        actionLabel = "DESHACER",
                         duration = SnackbarDuration.Long
                     )
+
+                    // RETO: Manejar la acción Deshacer
+                    when (result) {
+                        SnackbarResult.ActionPerformed -> {
+                            // Mostrar segundo Snackbar confirmando cancelación
+                            snackbarHostState.showSnackbar(
+                                message = "❌ Alerta cancelada. No se notificó a los contactos.",
+                                duration = SnackbarDuration.Short
+                            )
+                        }
+                        SnackbarResult.Dismissed -> {
+                            // El Snackbar se cerró normalmente (sin deshacer)
+                            // No se requiere acción adicional
+                        }
+                    }
                 }
             }
         )
@@ -54,7 +75,7 @@ fun DashboardScreen(
 
     SmartHealthMonitorTheme {
         Scaffold(
-            snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
+            snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
             topBar = {
                 TopAppBar(
                     title = { Text("SmartHealth Monitor") },
@@ -67,7 +88,8 @@ fun DashboardScreen(
             floatingActionButton = {
                 FloatingActionButton(
                     onClick = { mostrarAlerta = true },
-                    containerColor = MaterialTheme.colorScheme.error
+                    containerColor = MaterialTheme.colorScheme.error,
+                    modifier = Modifier.size(56.dp)  // 48dp mínimo táctil
                 ) {
                     Icon(
                         Icons.Default.Warning,
@@ -93,7 +115,6 @@ fun DashboardScreen(
                 }
 
                 item {
-                    // Tarjeta FC — reactiva al sensor real
                     TarjetaDato(
                         icono = Icons.Default.Favorite,
                         titulo = "Frecuencia Cardiaca",
