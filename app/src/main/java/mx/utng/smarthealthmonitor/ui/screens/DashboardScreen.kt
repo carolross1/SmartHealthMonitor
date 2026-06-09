@@ -1,10 +1,12 @@
 package mx.utng.smarthealthmonitor.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.DirectionsRun
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -15,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.launch
 import mx.utng.smarthealthmonitor.data.models.MockData
 import mx.utng.smarthealthmonitor.ui.theme.SmartHealthMonitorTheme
 import mx.utng.smarthealthmonitor.ui.viewmodel.DashboardViewModel
@@ -27,8 +30,31 @@ fun DashboardScreen(
 ) {
     val fcActual by viewModel.fc.collectAsState()
 
+    // Estado para el diálogo y Snackbar
+    var mostrarAlerta by remember { mutableStateOf(false) }
+    val snackBarHostState = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+
+    // Diálogo condicional
+    if (mostrarAlerta) {
+        AlertScreen(
+            fc = fcActual,
+            onDismiss = { mostrarAlerta = false },
+            onConfirmar = {
+                mostrarAlerta = false
+                scope.launch {
+                    snackBarHostState.showSnackbar(
+                        message = "Alerta enviada a tus contactos de emergencia",
+                        duration = SnackbarDuration.Long
+                    )
+                }
+            }
+        )
+    }
+
     SmartHealthMonitorTheme {
         Scaffold(
+            snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
             topBar = {
                 TopAppBar(
                     title = { Text("SmartHealth Monitor") },
@@ -37,53 +63,77 @@ fun DashboardScreen(
                         titleContentColor = MaterialTheme.colorScheme.onPrimary
                     )
                 )
+            },
+            floatingActionButton = {
+                FloatingActionButton(
+                    onClick = { mostrarAlerta = true },
+                    containerColor = MaterialTheme.colorScheme.error
+                ) {
+                    Icon(
+                        Icons.Default.Warning,
+                        contentDescription = "Enviar alerta de emergencia",
+                        tint = MaterialTheme.colorScheme.onError
+                    )
+                }
             }
         ) { padding ->
-            Column(
+            LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(padding)
                     .padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Text(
-                    text = "Resumen de salud",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+                item {
+                    Text(
+                        text = "Resumen de salud",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
 
-                // Tarjeta FC — reactiva al sensor real
-                TarjetaDato(
-                    icono = Icons.Default.Favorite,
-                    titulo = "Frecuencia Cardiaca",
-                    valor = "$fcActual",
-                    unidad = "bpm",
-                    esNormal = fcActual in 60..100
-                )
+                item {
+                    // Tarjeta FC — reactiva al sensor real
+                    TarjetaDato(
+                        icono = Icons.Default.Favorite,
+                        titulo = "Frecuencia Cardiaca",
+                        valor = "$fcActual",
+                        unidad = "bpm",
+                        esNormal = fcActual in 60..100
+                    )
+                }
 
-                TarjetaDato(
-                    icono = Icons.Default.WaterDrop,
-                    titulo = "SpO₂",
-                    valor = "${MockData.spo2Actual}",
-                    unidad = "%",
-                    esNormal = MockData.spo2Actual >= 95
-                )
+                item {
+                    TarjetaDato(
+                        icono = Icons.Default.WaterDrop,
+                        titulo = "SpO₂",
+                        valor = "${MockData.spo2Actual}",
+                        unidad = "%",
+                        esNormal = MockData.spo2Actual >= 95
+                    )
+                }
 
-                TarjetaDato(
-                    icono = Icons.Default.DirectionsRun,
-                    titulo = "Pasos Hoy",
-                    valor = "${MockData.pasosDiarios}",
-                    unidad = "pasos",
-                    esNormal = true
-                )
+                item {
+                    TarjetaDato(
+                        icono = Icons.Default.DirectionsRun,
+                        titulo = "Pasos Hoy",
+                        valor = "${MockData.pasosDiarios}",
+                        unidad = "pasos",
+                        esNormal = true
+                    )
+                }
 
-                Spacer(Modifier.weight(1f))
+                item {
+                    Spacer(Modifier.height(8.dp))
+                }
 
-                Button(
-                    onClick = onVerHistorial,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text("Ver historial de FC")
+                item {
+                    Button(
+                        onClick = onVerHistorial,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("Ver historial de FC")
+                    }
                 }
             }
         }
@@ -99,7 +149,7 @@ fun TarjetaDato(
     esNormal: Boolean
 ) {
     val color = if (esNormal) MaterialTheme.colorScheme.primary
-                else MaterialTheme.colorScheme.error
+    else MaterialTheme.colorScheme.error
 
     Card(
         modifier = Modifier.fillMaxWidth(),
