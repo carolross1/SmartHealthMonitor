@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <string msgid="9020470552698189270" name="autofill">"স্বয়ংক্রিয়ভাৱে পূৰ হোৱাৰ সুবিধা"</string>
+    <string msgid="389117264260014992" name="autofill">"স্বয়ংক্রিয়ভাৱে পূৰ হোৱাৰ সুবিধা"</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"উত্তৰ দিয়ক"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"ভিডিঅ’"</string>
     <string msgid="3229508546291798546" name="call_notification_decline_action">"প্ৰত্যাখ্যান কৰক"</string>
@@ -28,9 +28,20 @@
     <string name="common_open_on_phone">ফ\'নত খোলক</string>
     <string name="common_signin_button_text">ছাইন ইন কৰক</string>
     <string name="common_signin_button_text_long">Googleৰ জৰিয়তে ছাইন ইন কৰক</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"বিফল হৈছে"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"আপোনাৰ ফ’নত খোলা হৈছে"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"সফল হৈছে"</string>
     <string msgid="8038256446254964252" name="default_error_message">"অমান্য ইনপুট"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"পপ-আপ ৱিণ্ড’"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"ড্ৰপডাউনৰ মেনু"</string>
+    <string name="horologist_split_toggle_chip_off_state_description">অফ আছে</string>
+    <string name="horologist_split_toggle_chip_on_state_description">অন আছে</string>
+    <string name="horologist_stepper_decrease_content_description">কমাওক</string>
+    <string name="horologist_stepper_increase_content_description">বঢ়াওক</string>
+    <string name="horologist_toggle_button_off_state_description">অফ আছে</string>
+    <string name="horologist_toggle_button_on_state_description">অন আছে</string>
+    <string name="horologist_toggle_chip_off_state_description">অফ আছে</string>
+    <string name="horologist_toggle_chip_on_state_description">অন আছে</string>
     <string msgid="6827826412747255547" name="in_progress">"প্ৰক্ৰিয়াকৰণ কৰি থকা হৈছে"</string>
     <string msgid="7933458017204019916" name="indeterminate">"আংশিকভাৱে পৰীক্ষা কৰা হৈছে"</string>
     <string msgid="542007171693138492" name="navigation_menu">"নেভিগেশ্বন মেনু"</string>
@@ -48,4 +59,6 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> শতাংশ।"</string>
     <string msgid="3765533235322692011" name="tooltip_description">"টুলটিপ"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"টুলটিপ দেখুৱাওক"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"কাৰ্য ড্ৰৱাৰ"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"নেভিগেশ্বন ড্ৰৱাৰ"</string>
 </resources>

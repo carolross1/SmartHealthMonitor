@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <string msgid="9020470552698189270" name="autofill">"Autouzupełnianie"</string>
+    <string msgid="389117264260014992" name="autofill">"Autouzupełnianie"</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Odbierz"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Wideo"</string>
     <string msgid="3229508546291798546" name="call_notification_decline_action">"Odrzuć"</string>
@@ -28,9 +28,20 @@
     <string name="common_open_on_phone">Otwórz na telefonie</string>
     <string name="common_signin_button_text">Zaloguj się</string>
     <string name="common_signin_button_text_long">Zaloguj się przez Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Błąd"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Otwarto na telefonie"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Udało się"</string>
     <string msgid="8038256446254964252" name="default_error_message">"Nieprawidłowe dane wejściowe"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"Wyskakujące okienko"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"Menu"</string>
+    <string name="horologist_split_toggle_chip_off_state_description">Wyłączono</string>
+    <string name="horologist_split_toggle_chip_on_state_description">Włączono</string>
+    <string name="horologist_stepper_decrease_content_description">Zmniejsz</string>
+    <string name="horologist_stepper_increase_content_description">Zwiększ</string>
+    <string name="horologist_toggle_button_off_state_description">Wyłączono</string>
+    <string name="horologist_toggle_button_on_state_description">Włączono</string>
+    <string name="horologist_toggle_chip_off_state_description">Wyłączono</string>
+    <string name="horologist_toggle_chip_on_state_description">Włączono</string>
     <string msgid="6827826412747255547" name="in_progress">"W toku"</string>
     <string msgid="7933458017204019916" name="indeterminate">"Częściowo zaznaczone"</string>
     <string msgid="542007171693138492" name="navigation_menu">"Menu nawigacyjne"</string>
@@ -48,4 +59,6 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> procent."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"etykietka"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"pokaż etykietkę"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Panel działań"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Panel nawigacji"</string>
 </resources>

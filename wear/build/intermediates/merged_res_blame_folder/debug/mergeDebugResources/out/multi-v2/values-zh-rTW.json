@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "mx.utng.smarthealthmonitor.wear-mergeDebugResources-39:/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "mx.utng.smarthealthmonitor.wear-mergeDebugResources-51:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
                     "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\f472ae5296c20b4880fdb9e29844f83a\\transformed\\core-1.15.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
@@ -13,28 +13,28 @@
                         "endOffsets": "142,241,335,429,522,615,711,812"
                     },
                     "to": {
-                        "startLines": "3,4,5,6,7,8,9,44",
+                        "startLines": "3,4,5,6,7,8,9,55",
                         "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "177,269,368,462,556,649,742,3883",
+                        "startOffsets": "176,268,367,461,555,648,741,4830",
                         "endColumns": "91,98,93,93,92,92,95,100",
-                        "endOffsets": "264,363,457,551,644,737,833,3979"
+                        "endOffsets": "263,362,456,550,643,736,832,4926"
                     }
                 },
                 {
                     "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\8ae221cc8968a99a0d28e7d5ec7bea77\\transformed\\ui-release\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,177,254,330,417,508,586,660,737,815,890,963,1038,1106,1187,1260,1332,1403,1477,1545",
-                        "endColumns": "71,76,75,86,90,77,73,76,77,74,72,74,67,80,72,71,70,73,67,115",
-                        "endOffsets": "172,249,325,412,503,581,655,732,810,885,958,1033,1101,1182,1255,1327,1398,1472,1540,1656"
+                        "startLines": "3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "177,254,330,417,508,586,660,737,815,890,963,1038,1106,1187,1260,1332,1403,1477,1545",
+                        "endColumns": "76,75,86,90,77,73,76,77,74,72,74,67,80,72,71,70,73,67,115",
+                        "endOffsets": "249,325,412,503,581,655,732,810,885,958,1033,1101,1182,1255,1327,1398,1472,1540,1656"
                     },
                     "to": {
-                        "startLines": "2,10,11,30,31,32,33,34,35,36,37,38,39,40,41,42,43,45,46,47",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,838,915,2810,2897,2988,3066,3140,3217,3295,3370,3443,3518,3586,3667,3740,3812,3984,4058,4126",
-                        "endColumns": "71,76,75,86,90,77,73,76,77,74,72,74,67,80,72,71,70,73,67,115",
-                        "endOffsets": "172,910,986,2892,2983,3061,3135,3212,3290,3365,3438,3513,3581,3662,3735,3807,3878,4053,4121,4237"
+                        "startLines": "10,11,33,34,35,44,45,46,47,48,49,50,51,52,53,54,56,57,58",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "837,914,3130,3217,3308,4013,4087,4164,4242,4317,4390,4465,4533,4614,4687,4759,4931,5005,5073",
+                        "endColumns": "76,75,86,90,77,73,76,77,74,72,74,67,80,72,71,70,73,67,115",
+                        "endOffsets": "909,985,3212,3303,3381,4082,4159,4237,4312,4385,4460,4528,4609,4682,4754,4825,5000,5068,5184"
                     }
                 },
                 {
@@ -49,9 +49,60 @@
                     "to": {
                         "startLines": "20",
                         "startColumns": "4",
-                        "startOffsets": "1855",
+                        "startOffsets": "1854",
                         "endColumns": "102",
-                        "endOffsets": "1953"
+                        "endOffsets": "1952"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\121f25c73b3c3bcac7cef6b708c7296e\\transformed\\foundation-release\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,126,209",
+                        "endColumns": "70,82,78",
+                        "endOffsets": "121,204,283"
+                    },
+                    "to": {
+                        "startLines": "2,59,60",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "105,5189,5272",
+                        "endColumns": "70,82,78",
+                        "endOffsets": "171,5267,5346"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\6b0c747f6f19c34309885e75663a34c8\\transformed\\wear-1.3.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,159,269,376,477",
+                        "endColumns": "103,109,106,100,101",
+                        "endOffsets": "154,264,371,472,574"
+                    },
+                    "to": {
+                        "startLines": "30,31,32,61,62",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "2809,2913,3023,5351,5452",
+                        "endColumns": "103,109,106,100,101",
+                        "endOffsets": "2908,3018,3125,5447,5549"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\ff3f19377b7894aa49a15791b11d9ddb\\transformed\\horologist-compose-material-0.6.17\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,137,218,297,376,454,531,607",
+                        "endColumns": "81,80,78,78,77,76,75,74",
+                        "endOffsets": "132,213,292,371,449,526,602,677"
+                    },
+                    "to": {
+                        "startLines": "36,37,38,39,40,41,42,43",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "3386,3468,3549,3628,3707,3785,3862,3938",
+                        "endColumns": "81,80,78,78,77,76,75,74",
+                        "endOffsets": "3463,3544,3623,3702,3780,3857,3933,4008"
                     }
                 },
                 {
@@ -66,26 +117,9 @@
                     "to": {
                         "startLines": "12,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "991,1092,1220,1335,1437,1544,1660,1760,1958,2068,2169,2298,2413,2515,2623,2679,2736",
+                        "startOffsets": "990,1091,1219,1334,1436,1543,1659,1759,1957,2067,2168,2297,2412,2514,2622,2678,2735",
                         "endColumns": "100,127,114,101,106,115,99,94,109,100,128,114,101,107,55,56,73",
-                        "endOffsets": "1087,1215,1330,1432,1539,1655,1755,1850,2063,2164,2293,2408,2510,2618,2674,2731,2805"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\carol\\.gradle\\caches\\transforms-4\\0805e336fa5ef5351de825dfac2a2d2f\\transformed\\foundation-release\\res\\values-zh-rTW\\values-zh-rTW.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,138",
-                        "endColumns": "82,78",
-                        "endOffsets": "133,212"
-                    },
-                    "to": {
-                        "startLines": "48,49",
-                        "startColumns": "4,4",
-                        "startOffsets": "4242,4325",
-                        "endColumns": "82,78",
-                        "endOffsets": "4320,4399"
+                        "endOffsets": "1086,1214,1329,1431,1538,1654,1754,1849,2062,2163,2292,2407,2509,2617,2673,2730,2804"
                     }
                 }
             ]

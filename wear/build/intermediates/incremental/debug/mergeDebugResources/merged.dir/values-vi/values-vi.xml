@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-    <string msgid="9020470552698189270" name="autofill">"Tự động điền"</string>
+    <string msgid="389117264260014992" name="autofill">"Tự động điền"</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Trả lời"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
     <string msgid="3229508546291798546" name="call_notification_decline_action">"Từ chối"</string>
@@ -28,9 +28,20 @@
     <string name="common_open_on_phone">Mở trên điện thoại</string>
     <string name="common_signin_button_text">Đăng nhập</string>
     <string name="common_signin_button_text_long">Đăng nhập bằng Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Lỗi"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Đã mở trên điện thoại của bạn"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Thành công"</string>
     <string msgid="8038256446254964252" name="default_error_message">"Giá trị nhập không hợp lệ"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"Cửa sổ bật lên"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"Trình đơn thả xuống"</string>
+    <string name="horologist_split_toggle_chip_off_state_description">Đang tắt</string>
+    <string name="horologist_split_toggle_chip_on_state_description">Đang bật</string>
+    <string name="horologist_stepper_decrease_content_description">Giảm</string>
+    <string name="horologist_stepper_increase_content_description">Tăng</string>
+    <string name="horologist_toggle_button_off_state_description">Đang tắt</string>
+    <string name="horologist_toggle_button_on_state_description">Đang bật</string>
+    <string name="horologist_toggle_chip_off_state_description">Đang tắt</string>
+    <string name="horologist_toggle_chip_on_state_description">Đang bật</string>
     <string msgid="6827826412747255547" name="in_progress">"Đang thực hiện"</string>
     <string msgid="7933458017204019916" name="indeterminate">"Đã kiểm tra một phần"</string>
     <string msgid="542007171693138492" name="navigation_menu">"Trình đơn điều hướng"</string>
@@ -48,4 +59,6 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g>%%."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"chú thích"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"hiện chú thích"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Ngăn tác vụ"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Ngăn điều hướng"</string>
 </resources>
