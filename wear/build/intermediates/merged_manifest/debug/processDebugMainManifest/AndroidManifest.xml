@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mx.utng.smarthealthmonitor"
+    package="mx.utng.smarthealthmonitor.wear"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,10 +14,10 @@
     <uses-feature android:name="android.hardware.type.watch" />
 
     <permission
-        android:name="mx.utng.smarthealthmonitor.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="mx.utng.smarthealthmonitor.wear.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="mx.utng.smarthealthmonitor.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="mx.utng.smarthealthmonitor.wear.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <queries>
         <package android:name="com.google.android.wearable.healthservices" />
@@ -52,18 +52,24 @@
             </intent-filter>
         </service>
 
+        <uses-library
+            android:name="wear-sdk"
+            android:required="false" />
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="false" />
+
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <uses-library
-            android:name="wear-sdk"
-            android:required="false" />
+        <activity
+            android:name="androidx.compose.ui.tooling.PreviewActivity"
+            android:exported="true" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="mx.utng.smarthealthmonitor.androidx-startup"
+            android:authorities="mx.utng.smarthealthmonitor.wear.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"
