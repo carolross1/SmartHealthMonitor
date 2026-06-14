@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Vista previa del WatchFace SmartHealth (320x320dp).
+    Reemplazar por una captura real del emulador (preview_digital.png)
+    cuando se aplique el WatchFace en el AVD.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="320dp"
+    android:viewportWidth="320"
+    android:viewportHeight="320">
+
+    <!-- Fondo negro circular -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M160,0 A160,160 0 1,0 160.001,0 Z" />
+
+    <!-- Hora digital -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M70,150 L130,150 L130,165 L70,165 Z" />
+
+    <!-- FC -->
+    <path
+        android:fillColor="#FF0000"
+        android:pathData="M140,190 L180,190 L180,205 L140,205 Z" />
+</vector>
