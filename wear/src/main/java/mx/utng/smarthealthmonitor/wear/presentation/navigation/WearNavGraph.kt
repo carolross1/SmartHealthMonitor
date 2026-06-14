@@ -8,10 +8,12 @@ import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 import mx.utng.smarthealthmonitor.wear.presentation.WearDashboardViewModel
 import mx.utng.smarthealthmonitor.wear.presentation.screens.WearAlertaScreen
 import mx.utng.smarthealthmonitor.wear.presentation.screens.WearDashboardScreen
+import mx.utng.smarthealthmonitor.wear.presentation.screens.WearHistorialScreen
 
 object WearScreens {
     const val DASHBOARD = "wear_dashboard"
     const val ALERTA = "wear_alerta"
+    const val HISTORIAL = "wear_historial"   // NUEVO
 }
 
 @Composable
@@ -26,6 +28,9 @@ fun SmartHealthWearNavGraph() {
             WearDashboardScreen(
                 onAlertClick = {
                     navController.navigate(WearScreens.ALERTA)
+                },
+                onHistorialClick = {
+                    navController.navigate(WearScreens.HISTORIAL)
                 }
             )
         }
@@ -42,6 +47,12 @@ fun SmartHealthWearNavGraph() {
                 onCancelar = {
                     navController.popBackStack()
                 }
+            )
+        }
+
+        composable(WearScreens.HISTORIAL) {
+            WearHistorialScreen(
+                onBack = { navController.popBackStack() }
             )
         }
     }

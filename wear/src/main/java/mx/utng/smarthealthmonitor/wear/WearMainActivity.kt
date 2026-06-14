@@ -11,6 +11,7 @@ import com.google.android.gms.wearable.DataClient
 import com.google.android.gms.wearable.Wearable
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import mx.utng.smarthealthmonitor.data.SmartHealthRepository
 import mx.utng.smarthealthmonitor.wear.presentation.WearDashboardViewModel
 import mx.utng.smarthealthmonitor.wear.presentation.navigation.SmartHealthWearNavGraph
 import mx.utng.smarthealthmonitor.wear.presentation.theme.SmartHealthWearTheme
@@ -22,6 +23,9 @@ class WearMainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         wearDataSender = WearDataSender(this)
+
+        // Inicializar el Repository (DAO de Room) para el historial
+        SmartHealthRepository.init(this)
 
         // Limpiar todos los items anteriores del DataLayer
         lifecycleScope.launch {
@@ -42,5 +46,5 @@ class WearMainActivity : ComponentActivity() {
                 SmartHealthWearNavGraph()
             }
         }
-        }
     }
+}
