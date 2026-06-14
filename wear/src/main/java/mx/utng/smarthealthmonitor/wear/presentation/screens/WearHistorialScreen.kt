@@ -12,6 +12,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
+import androidx.wear.compose.foundation.lazy.ScalingLazyColumnDefaults
 import androidx.wear.compose.foundation.lazy.items
 import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.foundation.rotary.RotaryScrollableDefaults
@@ -49,6 +50,10 @@ fun WearHistorialScreen(
     ) {
         ScalingLazyColumn(
             state = listState,
+            // RETO: snap fling behavior - la lista "encaja" en items completos
+            // al soltar la corona, como en Samsung Galaxy Watch.
+            scalingParams = ScalingLazyColumnDefaults.scalingParams(),
+            flingBehavior = ScalingLazyColumnDefaults.snapFlingBehavior(listState),
             modifier = Modifier
                 .fillMaxSize()
                 .rotaryScrollable( // conecta la corona
