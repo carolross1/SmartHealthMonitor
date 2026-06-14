@@ -9,6 +9,7 @@ import android.graphics.Typeface
 import android.view.SurfaceHolder
 import androidx.wear.watchface.CanvasType
 import androidx.wear.watchface.ComplicationSlotsManager
+import androidx.wear.watchface.DrawMode
 import androidx.wear.watchface.Renderer
 import androidx.wear.watchface.WatchState
 import androidx.wear.watchface.style.CurrentUserStyleRepository
@@ -48,6 +49,15 @@ class SmartHealthRenderer(
         isAntiAlias = true
     }
 
+    // RETO: paints para modo AOD (Always-On Display) - sin antiAlias
+    // para ahorrar bateria, solo hora en blanco sobre negro puro.
+    private val paintHoraAmbient = Paint().apply {
+        color = Color.WHITE
+        textSize = 72f
+        isAntiAlias = false
+        typeface = Typeface.DEFAULT_BOLD
+    }
+
     override suspend fun createSharedAssets(): SharedAssets =
         object : SharedAssets {
             override fun onDestroy() {}
@@ -64,6 +74,15 @@ class SmartHealthRenderer(
 
         val cx = bounds.exactCenterX()
         val cy = bounds.exactCenterY()
+
+        // RETO: modo AOD (Always-On Display) - solo hora en blanco
+        // sobre negro puro, sin FC, con paints sin antiAlias.
+        if (renderParameters.drawMode == DrawMode.AMBIENT) {
+            val horaAmbient = String.format("%02d:%02d", zonedDateTime.hour, zonedDateTime.minute)
+            val twAmbient = paintHoraAmbient.measureText(horaAmbient)
+            canvas.drawText(horaAmbient, cx - twAmbient / 2, cy, paintHoraAmbient)
+            return
+        }
 
         // Hora digital centrada
         val hora = String.format("%02d:%02d", zonedDateTime.hour, zonedDateTime.minute)
