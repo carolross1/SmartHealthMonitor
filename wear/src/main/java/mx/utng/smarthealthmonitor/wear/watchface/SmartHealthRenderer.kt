@@ -29,7 +29,8 @@ class SmartHealthRenderer(
     interactiveDrawModeUpdateDelayMillis: Long
 ) : Renderer.CanvasRenderer2<Renderer.SharedAssets>(
     surfaceHolder, currentUserStyleRepository, watchState,
-    CanvasType.HARDWARE, interactiveDrawModeUpdateDelayMillis
+    CanvasType.HARDWARE, interactiveDrawModeUpdateDelayMillis,
+    clearWithBackgroundTintBeforeRenderingHighlightLayer = false
 ) {
 
     private val paintHora = Paint().apply {
