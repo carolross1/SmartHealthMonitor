@@ -1,0 +1,185 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="mx.utng.smarthealthmonitor.tv"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="35" />
+10
+11    <!-- Requiere D-pad / Leanback, no requiere touchscreen -->
+12    <uses-feature
+12-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:6:5-8:35
+13        android:name="android.software.leanback"
+13-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:7:9-49
+14        android:required="true" />
+14-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:8:9-32
+15    <uses-feature
+15-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:9:5-11:36
+16        android:name="android.hardware.touchscreen"
+16-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:10:9-52
+17        android:required="false" />
+17-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:11:9-33
+18
+19    <permission
+19-->[androidx.core:core:1.16.0] C:\Users\carol\.gradle\caches\transforms-4\5581d14894958a98e96be07f9b6decc5\transformed\core-1.16.0\AndroidManifest.xml:22:5-24:47
+20        android:name="mx.utng.smarthealthmonitor.tv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+20-->[androidx.core:core:1.16.0] C:\Users\carol\.gradle\caches\transforms-4\5581d14894958a98e96be07f9b6decc5\transformed\core-1.16.0\AndroidManifest.xml:23:9-81
+21        android:protectionLevel="signature" />
+21-->[androidx.core:core:1.16.0] C:\Users\carol\.gradle\caches\transforms-4\5581d14894958a98e96be07f9b6decc5\transformed\core-1.16.0\AndroidManifest.xml:24:9-44
+22
+23    <uses-permission android:name="mx.utng.smarthealthmonitor.tv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+23-->[androidx.core:core:1.16.0] C:\Users\carol\.gradle\caches\transforms-4\5581d14894958a98e96be07f9b6decc5\transformed\core-1.16.0\AndroidManifest.xml:26:5-97
+23-->[androidx.core:core:1.16.0] C:\Users\carol\.gradle\caches\transforms-4\5581d14894958a98e96be07f9b6decc5\transformed\core-1.16.0\AndroidManifest.xml:26:22-94
+24
+25    <application
+25-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:13:5-39:19
+26        android:name="mx.utng.smarthealthmonitor.tv.SmartHealthTvApp"
+26-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:14:9-41
+27        android:allowBackup="true"
+27-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:15:9-35
+28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+28-->[androidx.core:core:1.16.0] C:\Users\carol\.gradle\caches\transforms-4\5581d14894958a98e96be07f9b6decc5\transformed\core-1.16.0\AndroidManifest.xml:28:18-86
+29        android:banner="@drawable/banner_tv"
+29-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:16:9-45
+30        android:debuggable="true"
+31        android:extractNativeLibs="false"
+32        android:icon="@drawable/ic_launcher_tv"
+32-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:17:9-48
+33        android:label="@string/app_name_tv"
+33-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:18:9-44
+34        android:supportsRtl="true"
+34-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:19:9-35
+35        android:testOnly="true"
+36        android:theme="@style/Theme.SmartHealthMonitorTV" >
+36-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:20:9-58
+37        <activity
+37-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:23:9-37:20
+38            android:name="mx.utng.smarthealthmonitor.tv.TVActivity"
+38-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:24:13-39
+39            android:banner="@drawable/banner_tv"
+39-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:26:13-49
+40            android:exported="true"
+40-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:25:13-36
+41            android:icon="@drawable/ic_launcher_tv"
+41-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:27:13-52
+42            android:label="@string/app_name_tv"
+42-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:28:13-48
+43            android:logo="@drawable/banner_tv"
+43-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:29:13-47
+44            android:screenOrientation="landscape"
+44-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:30:13-50
+45            android:theme="@style/Theme.SmartHealthMonitorTV" >
+45-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:31:13-62
+46            <intent-filter>
+46-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:32:13-36:29
+47                <action android:name="android.intent.action.MAIN" />
+47-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:33:17-69
+47-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:33:25-66
+48
+49                <category android:name="android.intent.category.LAUNCHER" />
+49-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:34:17-77
+49-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:34:27-74
+50                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+50-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:35:17-86
+50-->C:\Proyectos\SmarthGit\SmartHealthMonitor\tv\src\main\AndroidManifest.xml:35:27-83
+51            </intent-filter>
+52        </activity>
+53        <activity
+53-->[androidx.compose.ui:ui-tooling-android:1.10.3] C:\Users\carol\.gradle\caches\transforms-4\7135b4bd123034f9eb7e75385f4b057b\transformed\ui-tooling\AndroidManifest.xml:23:9-25:39
+54            android:name="androidx.compose.ui.tooling.PreviewActivity"
+54-->[androidx.compose.ui:ui-tooling-android:1.10.3] C:\Users\carol\.gradle\caches\transforms-4\7135b4bd123034f9eb7e75385f4b057b\transformed\ui-tooling\AndroidManifest.xml:24:13-71
+55            android:exported="true" />
+55-->[androidx.compose.ui:ui-tooling-android:1.10.3] C:\Users\carol\.gradle\caches\transforms-4\7135b4bd123034f9eb7e75385f4b057b\transformed\ui-tooling\AndroidManifest.xml:25:13-36
+56
+57        <provider
+57-->[androidx.emoji2:emoji2:1.4.0] C:\Users\carol\.gradle\caches\transforms-4\bc4753e2f2305c3f39bad9d1d1510bb6\transformed\emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
+58            android:name="androidx.startup.InitializationProvider"
+58-->[androidx.emoji2:emoji2:1.4.0] C:\Users\carol\.gradle\caches\transforms-4\bc4753e2f2305c3f39bad9d1d1510bb6\transformed\emoji2-1.4.0\AndroidManifest.xml:25:13-67
+59            android:authorities="mx.utng.smarthealthmonitor.tv.androidx-startup"
+59-->[androidx.emoji2:emoji2:1.4.0] C:\Users\carol\.gradle\caches\transforms-4\bc4753e2f2305c3f39bad9d1d1510bb6\transformed\emoji2-1.4.0\AndroidManifest.xml:26:13-68
+60            android:exported="false" >
+60-->[androidx.emoji2:emoji2:1.4.0] C:\Users\carol\.gradle\caches\transforms-4\bc4753e2f2305c3f39bad9d1d1510bb6\transformed\emoji2-1.4.0\AndroidManifest.xml:27:13-37
+61            <meta-data
+61-->[androidx.emoji2:emoji2:1.4.0] C:\Users\carol\.gradle\caches\transforms-4\bc4753e2f2305c3f39bad9d1d1510bb6\transformed\emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+62                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+62-->[androidx.emoji2:emoji2:1.4.0] C:\Users\carol\.gradle\caches\transforms-4\bc4753e2f2305c3f39bad9d1d1510bb6\transformed\emoji2-1.4.0\AndroidManifest.xml:30:17-75
+63                android:value="androidx.startup" />
+63-->[androidx.emoji2:emoji2:1.4.0] C:\Users\carol\.gradle\caches\transforms-4\bc4753e2f2305c3f39bad9d1d1510bb6\transformed\emoji2-1.4.0\AndroidManifest.xml:31:17-49
+64            <meta-data
+64-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\carol\.gradle\caches\transforms-4\c7aef86d85aca31135fea5c949e3b90b\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+65-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\carol\.gradle\caches\transforms-4\c7aef86d85aca31135fea5c949e3b90b\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:30:17-78
+66                android:value="androidx.startup" />
+66-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\carol\.gradle\caches\transforms-4\c7aef86d85aca31135fea5c949e3b90b\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:31:17-49
+67            <meta-data
+67-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+68-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:30:17-85
+69                android:value="androidx.startup" />
+69-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:31:17-49
+70        </provider>
+71
+72        <uses-library
+72-->[androidx.window:window:1.5.0] C:\Users\carol\.gradle\caches\transforms-4\e7923e873889216f564addcc31855c86\transformed\window-1.5.0\AndroidManifest.xml:23:9-25:40
+73            android:name="androidx.window.extensions"
+73-->[androidx.window:window:1.5.0] C:\Users\carol\.gradle\caches\transforms-4\e7923e873889216f564addcc31855c86\transformed\window-1.5.0\AndroidManifest.xml:24:13-54
+74            android:required="false" />
+74-->[androidx.window:window:1.5.0] C:\Users\carol\.gradle\caches\transforms-4\e7923e873889216f564addcc31855c86\transformed\window-1.5.0\AndroidManifest.xml:25:13-37
+75        <uses-library
+75-->[androidx.window:window:1.5.0] C:\Users\carol\.gradle\caches\transforms-4\e7923e873889216f564addcc31855c86\transformed\window-1.5.0\AndroidManifest.xml:26:9-28:40
+76            android:name="androidx.window.sidecar"
+76-->[androidx.window:window:1.5.0] C:\Users\carol\.gradle\caches\transforms-4\e7923e873889216f564addcc31855c86\transformed\window-1.5.0\AndroidManifest.xml:27:13-51
+77            android:required="false" />
+77-->[androidx.window:window:1.5.0] C:\Users\carol\.gradle\caches\transforms-4\e7923e873889216f564addcc31855c86\transformed\window-1.5.0\AndroidManifest.xml:28:13-37
+78
+79        <service
+79-->[androidx.room:room-runtime:2.6.1] C:\Users\carol\.gradle\caches\transforms-4\1783dd1abca973e31b5a3828089bcfaf\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+80            android:name="androidx.room.MultiInstanceInvalidationService"
+80-->[androidx.room:room-runtime:2.6.1] C:\Users\carol\.gradle\caches\transforms-4\1783dd1abca973e31b5a3828089bcfaf\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+81            android:directBootAware="true"
+81-->[androidx.room:room-runtime:2.6.1] C:\Users\carol\.gradle\caches\transforms-4\1783dd1abca973e31b5a3828089bcfaf\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+82            android:exported="false" />
+82-->[androidx.room:room-runtime:2.6.1] C:\Users\carol\.gradle\caches\transforms-4\1783dd1abca973e31b5a3828089bcfaf\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+83
+84        <receiver
+84-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:34:9-52:20
+85            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+85-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:35:13-76
+86            android:directBootAware="false"
+86-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:36:13-44
+87            android:enabled="true"
+87-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:37:13-35
+88            android:exported="true"
+88-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:38:13-36
+89            android:permission="android.permission.DUMP" >
+89-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:39:13-57
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:40:13-42:29
+91                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+91-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:41:17-91
+91-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:41:25-88
+92            </intent-filter>
+93            <intent-filter>
+93-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:43:13-45:29
+94                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+94-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:44:17-85
+94-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:44:25-82
+95            </intent-filter>
+96            <intent-filter>
+96-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:46:13-48:29
+97                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+97-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:47:17-88
+97-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:47:25-85
+98            </intent-filter>
+99            <intent-filter>
+99-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:49:13-51:29
+100                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+100-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:50:17-95
+100-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\carol\.gradle\caches\transforms-4\f362523eab38643057261999498c31d6\transformed\profileinstaller-1.4.1\AndroidManifest.xml:50:25-92
+101            </intent-filter>
+102        </receiver>
+103    </application>
+104
+105</manifest>

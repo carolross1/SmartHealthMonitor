@@ -12,9 +12,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.tv.foundation.lazy.list.TvLazyColumn
+import androidx.tv.foundation.lazy.list.TvLazyRow
+import androidx.tv.foundation.lazy.list.items
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
 
@@ -30,14 +30,14 @@ fun TvCatalogScreen(
             return@Box
         }
 
-        LazyColumn(
+        TvLazyColumn(
             modifier = Modifier.fillMaxSize().padding(48.dp),
             verticalArrangement = Arrangement.spacedBy(32.dp)
         ) {
             // Fila 1: FC actual
             item {
                 RowSection(title = "⚡ Estado Actual — ${state.fcActual} bpm") {
-                    LazyRow(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                    TvLazyRow(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                         items(state.lecturas.takeLast(3)) { lectura ->
                             FcCardItem(lectura = lectura, onClick = {})
                         }
@@ -48,7 +48,7 @@ fun TvCatalogScreen(
             // Fila 2: Historial completo
             item {
                 RowSection(title = "📋 Historial FC") {
-                    LazyRow(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                    TvLazyRow(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                         items(state.lecturas) { lectura ->
                             FcCardItem(lectura = lectura, onClick = {})
                         }
