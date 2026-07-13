@@ -16,8 +16,12 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.mediarouter.app.MediaRouteButton
+import com.google.android.gms.cast.framework.CastButtonFactory
 import kotlinx.coroutines.launch
+import mx.utng.smarthealthmonitor.R
 import mx.utng.smarthealthmonitor.data.models.MockData
 import mx.utng.smarthealthmonitor.ui.theme.SmartHealthMonitorTheme
 import mx.utng.smarthealthmonitor.ui.viewmodel.DashboardViewModel
@@ -79,6 +83,27 @@ fun DashboardScreen(
             topBar = {
                 TopAppBar(
                     title = { Text("SmartHealth Monitor") },
+                    actions = {
+                        // CastButton: AndroidView que envuelve MediaRouteButton (no
+                        // existe Composable nativo para el Cast SDK). Aparece gris
+                        // si no hay Chromecasts en la red — en el emulador siempre
+                        // se ve gris, se evalúa que el código esté implementado.
+                        AndroidView(
+                            factory = { context ->
+                                // ContextThemeWrapper con Theme.CastButton (AppCompat)
+                                // porque MediaRouteButton necesita colorPrimary/colorAccent
+                                // definidos vía AppCompat — el tema base de la app no los
+                                // trae y el botón truena al inicializarse sin esto.
+                                val themedContext = android.view.ContextThemeWrapper(
+                                    context, R.style.Theme_CastButton
+                                )
+                                MediaRouteButton(themedContext).apply {
+                                    CastButtonFactory.setUpMediaRouteButton(context, this)
+                                }
+                            },
+                            modifier = Modifier.size(48.dp)
+                        )
+                    },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.primary,
                         titleContentColor = MaterialTheme.colorScheme.onPrimary
