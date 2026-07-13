@@ -81,6 +81,13 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
 
+    // Cast SDK
+    implementation("androidx.mediarouter:mediarouter:1.7.0")
+    implementation("com.google.android.gms:play-services-cast-framework:21.5.0")
+    // Requerido para que MediaRouteButton pueda resolver un tema con colores
+    // válidos (ver Theme.CastButton en themes.xml)
+    implementation("androidx.appcompat:appcompat:1.7.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

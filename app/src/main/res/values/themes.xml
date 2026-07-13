@@ -1,3 +1,13 @@
 <resources>
     <style name="Theme.SmartHealthMonitor2" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- MediaRouteButton (Cast SDK) requiere un tema basado en AppCompat con
+         colorPrimary/colorAccent definidos; sin esto truena con
+         "background can not be translucent: #0". Se envuelve el Context del
+         botón con este tema solo para ese componente, no afecta el resto de la app. -->
+    <style name="Theme.CastButton" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorAccent">@color/teal_200</item>
+    </style>
 </resources>
