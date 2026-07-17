@@ -27,6 +27,13 @@ class WearMainActivity : ComponentActivity() {
         // Inicializar el Repository (DAO de Room) para el historial
         SmartHealthRepository.init(this)
 
+        // Registrar HealthDataService como PassiveListener de Health Services.
+        // Sin esto, el servicio nunca se activa y no llegan datos reales del
+        // sensor (ni por Wearable Data Layer ni por MQTT).
+        lifecycleScope.launch {
+            HealthDataService.registrar(this@WearMainActivity)
+        }
+
         // Limpiar todos los items anteriores del DataLayer
         lifecycleScope.launch {
             try {

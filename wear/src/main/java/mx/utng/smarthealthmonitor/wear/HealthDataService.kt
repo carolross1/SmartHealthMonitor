@@ -13,15 +13,18 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.guava.await
 import kotlinx.coroutines.launch
+import mx.utng.smarthealthmonitor.wear.mqtt.MqttWearPublisher
 
 /**
  * Servicio pasivo que escucha el sensor HEART_RATE_BPM del wearable
- * usando Health Services API y lo reenvía al teléfono.
+ * usando Health Services API y lo reenvía al teléfono (Wearable Data
+ * Layer) y al broker MQTT (HiveMQ Cloud, Sesión 13).
  */
 class HealthDataService : PassiveListenerService() {
 
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
     private lateinit var wearDataSender: WearDataSender
+    private lateinit var mqttPublisher: MqttWearPublisher
 
     companion object {
         private const val TAG = "HealthDataService"
@@ -55,6 +58,10 @@ class HealthDataService : PassiveListenerService() {
     override fun onCreate() {
         super.onCreate()
         wearDataSender = WearDataSender(this)
+
+        mqttPublisher = MqttWearPublisher(this)
+        scope.launch { mqttPublisher.connect() }
+
         Log.d(TAG, "HealthDataService creado")
     }
 
@@ -66,6 +73,14 @@ class HealthDataService : PassiveListenerService() {
                 Log.d(TAG, "FC recibida del sensor: $bpm bpm")
                 scope.launch {
                     wearDataSender.enviarFC(bpm)
+
+                    // MQTT (Sesión 13): publica al topic utng/smarthealthmonitor/fc
+                    val estado = when {
+                        bpm < 60 -> "FC Baja"
+                        bpm > 100 -> "FC Alta"
+                        else -> "Normal"
+                    }
+                    mqttPublisher.publishFC(bpm, estado)
                 }
             }
         }
@@ -73,6 +88,7 @@ class HealthDataService : PassiveListenerService() {
 
     override fun onDestroy() {
         super.onDestroy()
+        mqttPublisher.disconnect()
         scope.cancel()
     }
 }
