@@ -1,8 +1,18 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.serialization)
+}
+
+// Credenciales MQTT leidas desde local.properties (NO se suben al repo)
+val localProperties = Properties().apply {
+    val localFile = rootProject.file("local.properties")
+    if (localFile.exists()) load(FileInputStream(localFile))
 }
 
 android {
@@ -17,6 +27,10 @@ android {
         versionName = "1.0"
 
         resourceConfigurations += listOf("en", "es")
+
+        buildConfigField("String", "HIVEMQ_BROKER_URL", "\"${localProperties.getProperty("HIVEMQ_BROKER_URL", "ssl://TU-CLUSTER.hivemq.cloud:8883")}\"")
+        buildConfigField("String", "HIVEMQ_USERNAME", "\"${localProperties.getProperty("HIVEMQ_USERNAME", "")}\"")
+        buildConfigField("String", "HIVEMQ_PASSWORD", "\"${localProperties.getProperty("HIVEMQ_PASSWORD", "")}\"")
     }
 
     buildTypes {
@@ -40,6 +54,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
@@ -60,6 +75,12 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling.preview)
+
+    // Eclipse Paho MQTT (Sesión 13 - HiveMQ Cloud)
+    implementation("org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5")
+    implementation("org.eclipse.paho:org.eclipse.paho.android.service:1.1.1")
+    // Kotlinx Serialization para JSON
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
     // Wear OS Compose
     implementation("androidx.wear.compose:compose-material:1.4.0")

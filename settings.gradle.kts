@@ -16,6 +16,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // Eclipse Paho MQTT (Sesión 13 - MQTT HiveMQ Cloud)
+        maven { url = uri("https://repo.eclipse.org/content/repositories/paho-releases/") }
     }
 }
 
